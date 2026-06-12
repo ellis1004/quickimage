@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PickRandom 隨機決定助手 - 免費線上大轉盤與名單抽籤工具</title>
+  <meta name="description" content="PickRandom 隨機決定助手為您解決選擇障礙！提供精美轉盤旋轉抽籤、名單批次隨機抽取功能，適用於中午吃什麼、課堂抽問、尾牙抽獎，100% 本地運行保護隱私。">
+  <meta name="keywords" content="隨機轉盤, 抽籤器, 中午吃什麼, 幸運大轉盤, 線上抽籤, 選擇困難, 尾牙抽獎">
+  
+  <!-- Google Fonts: Outfit & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="app-container">
+    <!-- Header with Navigation -->
+    <header>
+      <div class="logo-section">
+        <h1 style="display: flex; align-items: center; gap: 0.5rem; font-size: 1.75rem; font-weight: 800;">
+          <a href="index.html" style="text-decoration: none; color: inherit; background: var(--accent-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">QuickImage 快捷工具箱</a>
+        </h1>
+      </div>
+      <nav class="nav-links">
+        <a href="index.html" class="nav-link">🏠 首頁大廳</a>
+        <a href="image-compressor.html" class="nav-link">🖼️ 圖片壓縮</a>
+        <a href="random-picker.html" class="nav-link active">🎯 隨機抽籤</a>
+        <a href="focus-timer.html" class="nav-link">⏱️ 專注計時</a>
+      </nav>
+    </header>
+
+    <!-- Top Simulated Banner Ad -->
+    <div class="ad-banner" id="top-ad">
+      <span style="font-size: 0.9rem; color: var(--text-secondary);">廣告版位預留 (Responsive Banner Ad)</span>
+    </div>
+
+    <!-- Main Content Grid -->
+    <main class="main-grid">
+      <!-- Left Workspace -->
+      <div class="workspace">
+        
+        <!-- Tab Controls Card -->
+        <div class="glass-card">
+          <div class="tabs-header">
+            <button class="tab-btn active" data-tab="wheel-tab">🎡 幸運大轉盤</button>
+            <button class="tab-btn" data-tab="list-tab">📋 名單抽籤器</button>
+          </div>
+
+          <!-- Tab 1: Lucky Wheel -->
+          <div class="tab-content active" id="wheel-tab">
+            <div class="picker-layout">
+              <!-- Wheel Render area -->
+              <div style="display: flex; flex-direction: column; align-items: center;">
+                <div class="wheel-container">
+                  <div class="wheel-pointer"></div>
+                  <canvas id="wheel-canvas" width="300" height="300"></canvas>
+                  <div class="wheel-center-pin" id="wheel-spin-pin">GO!</div>
+                </div>
+                <button class="btn btn-primary" id="wheel-spin-btn" style="width: 100%; max-width: 200px;">開始旋轉</button>
+              </div>
+
+              <!-- Input Area -->
+              <div class="picker-input-area">
+                <div class="control-group">
+                  <label class="control-label" for="wheel-options">
+                    轉盤選項 (每行輸入一個)
+                  </label>
+                  <textarea id="wheel-options" class="textarea-custom" placeholder="請輸入選項，例如：&#13;雞排&#13;牛排&#13;義大利麵">雞排
+牛排
+火鍋
+義大利麵
+壽司
+拉麵
+麥當勞
+沙拉</textarea>
+                </div>
+                <button class="btn btn-secondary" id="reset-wheel-btn">重置轉盤顏色</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tab 2: Name Picker -->
+          <div class="tab-content" id="list-tab">
+            <div class="picker-input-area" style="max-width: 600px; margin: 0 auto;">
+              <div class="control-group">
+                <label class="control-label" for="picker-names">
+                  名單列表 (每行輸入一個項目或名字)
+                </label>
+                <textarea id="picker-names" class="textarea-custom" placeholder="阿明&#13;小華&#13;佳佳&#13;小芬"></textarea>
+              </div>
+
+              <div class="controls-panel" style="grid-template-columns: 1fr auto;">
+                <div class="control-group">
+                  <label class="control-label" for="picker-draw-count">
+                    抽取數量
+                  </label>
+                  <div class="select-wrapper">
+                    <select id="picker-draw-count">
+                      <option value="1">抽取 1 人</option>
+                      <option value="2">抽取 2 人</option>
+                      <option value="3">抽取 3 人</option>
+                      <option value="5">抽取 5 人</option>
+                      <option value="10">抽取 10 人</option>
+                    </select>
+                  </div>
+                </div>
+                <button class="btn btn-primary" id="list-draw-btn" style="height: 48px; margin-top: 28px;">開始抽籤</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Winner Display Card (Shared) -->
+          <div class="winner-display" id="winner-card" style="display: none;">
+            <div style="font-size: 1.1rem; font-weight: 600; color: var(--text-secondary);" id="winner-title">🎉 恭喜中獎！ 🎉</div>
+            <div class="winner-name" id="winner-name-txt">???</div>
+            <div style="font-size: 0.85rem; color: var(--text-muted);">本結果完全由瀏覽器隨機亂數產生，公平公正。</div>
+          </div>
+        </div>
+
+        <!-- FAQ Section -->
+        <div class="about-section">
+          <div class="about-item">
+            <h3>🎡 幸運轉盤的運作原理</h3>
+            <p>我們的幸運轉盤利用 HTML5 Canvas 動態渲染扇形，並以物理摩擦力減速模型計算轉速衰減。隨機數採用 JavaScript 本地具備高亂數隨機性的 `Math.random()`，保證每次點擊旋轉都是完全獨立的隨機事件。</p>
+          </div>
+          <div class="about-item">
+            <h3>🔒 隱私與商用抽籤</h3>
+            <p>不論是輸入員工尾牙抽獎名單，或是班級學生姓名，名單數據完全保存在您的瀏覽器暫存中，<b>不會傳輸到任何外部伺服器</b>。您可以放心輸入各類姓名資訊，資訊絕不外洩。</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right Sidebar (Simulated Ad Column) -->
+      <aside class="ad-sidebar">
+        <div class="ad-skyscraper" id="sidebar-ad">
+          <span style="font-size: 0.9rem; color: var(--text-secondary);">廣告版位預留 (Skyscraper Ad)</span>
+        </div>
+      </aside>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2026 QuickImage 快捷工具箱. All rights reserved. | <a href="privacy.html" style="color: var(--text-secondary); text-decoration: none;">隱私權政策 (Privacy Policy)</a></p>
+    </footer>
+  </div>
+
+  <!-- Confetti Canvas library for celebration (Load from CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <!-- Logic -->
+  <script src="random-picker.js"></script>
+</body>
+</html>

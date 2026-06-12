@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FocusClock 專注計時器 - 線上番茄鐘與大自然白噪音</title>
+  <meta name="description" content="FocusClock 專注計時器結合了科學的番茄工作法（Pomodoro）與環境白噪音混音器。提供大字體倒數、自訂專注與休息間隔，並能自由調配雨聲、風聲與白噪音，幫助您提升專注力與睡眠品質。">
+  <meta name="keywords" content="番茄鐘線上, 專注計時器, 白噪音, 番茄工作法, 線上雨聲, 高效工作, 靜音專注">
+  
+  <!-- Google Fonts: Outfit & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="app-container">
+    <!-- Header with Navigation -->
+    <header>
+      <div class="logo-section">
+        <h1 style="display: flex; align-items: center; gap: 0.5rem; font-size: 1.75rem; font-weight: 800;">
+          <a href="index.html" style="text-decoration: none; color: inherit; background: var(--accent-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">QuickImage 快捷工具箱</a>
+        </h1>
+      </div>
+      <nav class="nav-links">
+        <a href="index.html" class="nav-link">🏠 首頁大廳</a>
+        <a href="image-compressor.html" class="nav-link">🖼️ 圖片壓縮</a>
+        <a href="random-picker.html" class="nav-link">🎯 隨機抽籤</a>
+        <a href="focus-timer.html" class="nav-link active">⏱️ 專注計時</a>
+      </nav>
+    </header>
+
+    <!-- Top Simulated Banner Ad -->
+    <div class="ad-banner" id="top-ad">
+      <span style="font-size: 0.9rem; color: var(--text-secondary);">廣告版位預留 (Responsive Banner Ad)</span>
+    </div>
+
+    <!-- Main Content Grid -->
+    <main class="main-grid">
+      <!-- Left Workspace -->
+      <div class="workspace">
+        
+        <!-- Timer UI Card -->
+        <div class="glass-card">
+          <div class="timer-container">
+            <!-- Mode selectors -->
+            <div class="timer-controls" style="margin-bottom: 2rem;">
+              <button class="btn btn-secondary btn-mode active" data-time="1500" data-mode="focus">專注時間</button>
+              <button class="btn btn-secondary btn-mode" data-time="300" data-mode="short-break">短暫休息</button>
+              <button class="btn btn-secondary btn-mode" data-time="900" data-mode="long-break">長假休息</button>
+            </div>
+
+            <!-- Circular Timer -->
+            <div class="timer-circle-wrap">
+              <svg class="timer-circle-svg" viewBox="0 0 280 280">
+                <defs>
+                  <linearGradient id="timer-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#6366f1" />
+                    <stop offset="100%" stop-color="#a855f7" />
+                  </linearGradient>
+                </defs>
+                <circle class="timer-circle-bg" cx="140" cy="140" r="130" />
+                <circle class="timer-circle-progress" id="timer-progress" cx="140" cy="140" r="130" />
+              </svg>
+              <div class="timer-display">
+                <span class="timer-time" id="timer-time-display">25:00</span>
+                <span class="timer-state" id="timer-state-display">專注中</span>
+              </div>
+            </div>
+
+            <!-- Execution Buttons -->
+            <div style="display: flex; gap: 1rem; width: 100%; max-width: 320px; justify-content: center;">
+              <button class="btn btn-primary" id="timer-start-btn" style="flex: 1;">開始</button>
+              <button class="btn btn-secondary" id="timer-reset-btn">重置</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ambient Sound Mixer Card -->
+        <div class="glass-card">
+          <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem;">
+            <span>🍃 背景放鬆音效 (Web Audio 合成白噪音)</span>
+            <span class="badge badge-success" style="font-size: 0.75rem;">100% 離線可用</span>
+          </h3>
+          
+          <div class="mixer-grid">
+            <!-- Mixer Item 1: Rain -->
+            <div class="mixer-item" id="mixer-rain">
+              <div class="mixer-icon">🌧️</div>
+              <div class="mixer-info">
+                <div class="mixer-label">下雨聲</div>
+                <input type="range" class="volume-slider" data-sound="rain" min="0" max="100" value="0">
+              </div>
+            </div>
+
+            <!-- Mixer Item 2: Wind -->
+            <div class="mixer-item" id="mixer-wind">
+              <div class="mixer-icon">🌲</div>
+              <div class="mixer-info">
+                <div class="mixer-label">大自然風聲</div>
+                <input type="range" class="volume-slider" data-sound="wind" min="0" max="100" value="0">
+              </div>
+            </div>
+
+            <!-- Mixer Item 3: White Noise -->
+            <div class="mixer-item" id="mixer-white">
+              <div class="mixer-icon">🌊</div>
+              <div class="mixer-info">
+                <div class="mixer-label">海浪與白噪音</div>
+                <input type="range" class="volume-slider" data-sound="white" min="0" max="100" value="0">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ Section -->
+        <div class="about-section">
+          <div class="about-item">
+            <h3>⏱️ 什麼是番茄工作法？</h3>
+            <p>番茄工作法（Pomodoro Technique）由 Francesco Cirillo 於1980年代後期創立。它提倡：專注工作 25 分鐘，隨後休息 5 分鐘。這是一個循環。每完成 4 個循環，進行一次 15~30 分鐘的長休息。這種節奏有助於緩解大腦疲勞並維持高效專注狀態。</p>
+          </div>
+          <div class="about-item">
+            <h3>🔊 為什麼整合 Web Audio 音效？</h3>
+            <p>科學研究指出，穩定的大自然聲音（如雨聲、風聲）可以有效阻隔外界的突發雜音，並降低大腦對周遭環境的敏感度，進而幫助進入「心流（Flow）」狀態。本站採用 Web Audio API 進行本地音頻實時合成，不消耗您的網路流量，亦沒有音樂版權問題。</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right Sidebar (Simulated Ad Column) -->
+      <aside class="ad-sidebar">
+        <div class="ad-skyscraper" id="sidebar-ad">
+          <span style="font-size: 0.9rem; color: var(--text-secondary);">廣告版位預留 (Skyscraper Ad)</span>
+        </div>
+      </aside>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2026 QuickImage 快捷工具箱. All rights reserved. | <a href="privacy.html" style="color: var(--text-secondary); text-decoration: none;">隱私權政策 (Privacy Policy)</a></p>
+    </footer>
+  </div>
+
+  <!-- Audio and Timer Logic -->
+  <script src="focus-timer.js"></script>
+</body>
+</html>

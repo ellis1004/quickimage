@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QuickImage 快捷圖片助手 - 免費線上圖片壓縮與格式轉換工具</title>
+  <meta name="description" content="QuickImage 是一款完全免費、免安裝且 100% 保障隱私的線上圖片工具。支援在瀏覽器中直接進行圖片壓縮、尺寸調整及 PNG/JPG/WebP 格式互轉，圖片不經任何伺服器，速度極快且安全。">
+  <meta name="keywords" content="圖片壓縮, 圖片轉檔, png轉webp, jpg轉webp, 線上圖片工具, 免費圖片壓縮, 隱私安全">
+  
+  <!-- Google Fonts: Outfit & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="app-container">
+    <!-- Header with Navigation -->
+    <header>
+      <div class="logo-section">
+        <h1 style="display: flex; align-items: center; gap: 0.5rem; font-size: 1.75rem; font-weight: 800;">
+          <a href="index.html" style="text-decoration: none; color: inherit; background: var(--accent-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">QuickImage 快捷圖片助手</a>
+        </h1>
+      </div>
+      <nav class="nav-links">
+        <a href="index.html" class="nav-link">🏠 首頁大廳</a>
+        <a href="image-compressor.html" class="nav-link active">🖼️ 圖片壓縮</a>
+        <a href="random-picker.html" class="nav-link">🎯 隨機抽籤</a>
+        <a href="focus-timer.html" class="nav-link">⏱️ 專注計時</a>
+      </nav>
+    </header>
+
+    <!-- Top Simulated Banner Ad -->
+    <div class="ad-banner" id="top-ad">
+      <!-- Simulated Banner Ad Container -->
+      <span style="font-size: 0.9rem; color: var(--text-secondary);">廣告版位預留 (Responsive Banner Ad)</span>
+    </div>
+
+    <!-- Main Content Grid -->
+    <main class="main-grid">
+      <!-- Left Workspace -->
+      <div class="workspace">
+        
+        <!-- Upload Zone -->
+        <div class="glass-card">
+          <div class="dropzone" id="dropzone">
+            <input type="file" id="file-input" class="file-input" accept="image/*" multiple>
+            <div class="dropzone-icon">
+              <svg viewBox="0 0 24 24">
+                <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z"/>
+              </svg>
+            </div>
+            <h3>將圖片拖曳至此處，或點擊選擇檔案</h3>
+            <p>支援 PNG, JPG, WebP 格式，可批次處理</p>
+          </div>
+        </div>
+
+        <!-- Controls Panel -->
+        <div class="glass-card">
+          <div class="controls-panel">
+            <!-- Format selector -->
+            <div class="control-group">
+              <label class="control-label" for="format-select">
+                輸出格式
+              </label>
+              <div class="select-wrapper">
+                <select id="format-select">
+                  <option value="image/webp" selected>WebP (推薦：體積最小)</option>
+                  <option value="image/jpeg">JPEG (相容性佳)</option>
+                  <option value="image/png">PNG (無損壓縮/保留透明度)</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Quality slider -->
+            <div class="control-group" id="quality-group">
+              <label class="control-label" for="quality-range">
+                壓縮品質
+                <span class="value" id="quality-value">80%</span>
+              </label>
+              <input type="range" id="quality-range" min="10" max="100" value="80" step="5">
+            </div>
+          </div>
+        </div>
+
+        <!-- Results / Queue Panel (Hidden by default, displayed via JS) -->
+        <div class="glass-card" id="results-panel" style="display: none;">
+          <div class="queue-header">
+            <h3 class="queue-title">處理結果</h3>
+            <div style="display: flex; gap: 0.5rem;">
+              <button class="btn btn-secondary" id="clear-all-btn">清除全部</button>
+              <button class="btn btn-primary" id="download-all-btn">下載全部 (.zip)</button>
+            </div>
+          </div>
+          <div class="file-list" id="file-list">
+            <!-- File items will be dynamically inserted here -->
+          </div>
+        </div>
+
+        <!-- FAQ & Guide -->
+        <div class="about-section">
+          <div class="about-item">
+            <h3>🔒 100% 隱私安全保障</h3>
+            <p>與其他圖片壓縮網站不同，QuickImage 所有的圖片運算與格式轉換皆在您本地電腦的瀏覽器中完成，圖片<b>完全不會</b>被上傳至任何雲端伺服器。即使中斷網路，您依然可以正常使用本工具，不用擔心敏感圖片洩漏。</p>
+          </div>
+          <div class="about-item">
+            <h3>⚡ 為什麼推薦轉為 WebP 格式？</h3>
+            <p>WebP 是由 Google 開發的現代圖片格式，比起傳統的 JPEG 和 PNG，它能在保持極高畫質的同時，減少約 30% 甚至更多的檔案大小。這能大幅提升您網頁的載入速度並節省頻寬，對網站 SEO 有極大的幫助。</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right Sidebar (Simulated Ad Column) -->
+      <aside class="ad-sidebar">
+        <div class="ad-skyscraper" id="sidebar-ad">
+          <span style="font-size: 0.9rem; color: var(--text-secondary);">廣告版位預留 (Skyscraper Ad)</span>
+        </div>
+      </aside>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2026 QuickImage 快捷圖片助手. All rights reserved. | <a href="privacy.html" style="color: var(--text-secondary); text-decoration: none;">隱私權政策 (Privacy Policy)</a></p>
+    </footer>
+  </div>
+
+  <!-- JS Zip Library for batch downloading (Load from CDN) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+  <!-- Application logic -->
+  <script src="app.js"></script>
+</body>
+</html>
