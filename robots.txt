@@ -4,4 +4,4 @@ User-agent: *
 Allow: /
 
 # Sitemap Location
-Sitemap: https://quickimage-peach.vercel.app/sitemap.xml
+Sitemap: https://quicktoolslive.com/sitemap.xml
