@@ -18,9 +18,13 @@
   <style>
     /* Home Portal Specific Styles */
     .welcome-banner {
-      text-align: center;
-      padding: 3rem 1.5rem;
-      background: radial-gradient(circle at center, rgba(99, 102, 241, 0.15) 0%, transparent 70%);
+      display: grid;
+      grid-template-columns: 1.25fr 1fr;
+      gap: 2.5rem;
+      align-items: center;
+      text-align: left;
+      padding: 2.5rem 3rem;
+      background: radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.15) 0%, transparent 60%);
       border-radius: var(--radius-lg);
       margin-bottom: 1.5rem;
     }
@@ -28,7 +32,8 @@
     .welcome-banner h2 {
       font-size: 2.25rem;
       font-weight: 800;
-      margin-bottom: 0.75rem;
+      margin-bottom: 1rem;
+      line-height: 1.3;
       letter-spacing: -0.5px;
     }
     
@@ -40,9 +45,44 @@
 
     .welcome-banner p {
       color: var(--text-secondary);
-      font-size: 1.1rem;
-      max-width: 600px;
-      margin: 0 auto;
+      font-size: 1.05rem;
+      line-height: 1.6;
+      max-width: 100%;
+      margin: 0;
+    }
+
+    .welcome-image-container {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+      border: 1px solid var(--border-color);
+      display: flex;
+      transition: var(--transition-normal);
+    }
+    
+    .welcome-image-container:hover {
+      transform: scale(1.02);
+      border-color: rgba(99, 102, 241, 0.3);
+    }
+
+    .welcome-image-container img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    @media (max-width: 768px) {
+      .welcome-banner {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 2rem 1.5rem;
+        gap: 1.5rem;
+      }
+      .welcome-image-container {
+        max-width: 400px;
+        margin: 0 auto;
+      }
     }
 
     .tools-grid {
@@ -161,8 +201,13 @@
         
         <!-- Welcome Banner -->
         <div class="glass-card welcome-banner">
-          <h2>精選 <span>免費線上小工具</span> 集合</h2>
-          <p>免安裝、免註冊、100% 本地安全運算，為您的日常工作與生活帶來便利與效率。</p>
+          <div>
+            <h2>精選 <span>免費線上小工具</span> 集合</h2>
+            <p>免安裝、免註冊、100% 本地安全運算，為您的日常工作與生活帶來便利與效率。安全不洩密，點擊即可在瀏覽器端瞬間完成處理。</p>
+          </div>
+          <div class="welcome-image-container">
+            <img src="hero_banner.png" alt="QuickToolsLive Hero Banner">
+          </div>
         </div>
 
         <!-- Tools Grid -->
