@@ -2,40 +2,40 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <!-- 首頁 / 工具箱導覽大廳 -->
   <url>
-    <loc>https://quicktoolslive.com/</loc>
-    <lastmod>2026-06-12</lastmod>
+    <loc>https://www.quicktoolslive.com/</loc>
+    <lastmod>2026-06-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   
   <!-- 圖片壓縮工具 -->
   <url>
-    <loc>https://quicktoolslive.com/image-compressor.html</loc>
-    <lastmod>2026-06-12</lastmod>
+    <loc>https://www.quicktoolslive.com/image-compressor.html</loc>
+    <lastmod>2026-06-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   
   <!-- 隨機決定助手 -->
   <url>
-    <loc>https://quicktoolslive.com/random-picker.html</loc>
-    <lastmod>2026-06-12</lastmod>
+    <loc>https://www.quicktoolslive.com/random-picker.html</loc>
+    <lastmod>2026-06-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <!-- 專注計時與番茄鐘 -->
   <url>
-    <loc>https://quicktoolslive.com/focus-timer.html</loc>
-    <lastmod>2026-06-12</lastmod>
+    <loc>https://www.quicktoolslive.com/focus-timer.html</loc>
+    <lastmod>2026-06-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <!-- 隱私權政策頁面 -->
   <url>
-    <loc>https://quicktoolslive.com/privacy.html</loc>
-    <lastmod>2026-06-12</lastmod>
+    <loc>https://www.quicktoolslive.com/privacy.html</loc>
+    <lastmod>2026-06-25</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>

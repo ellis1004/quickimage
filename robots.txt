@@ -4,4 +4,4 @@ User-agent: *
 Allow: /
 
 # Sitemap Location
-Sitemap: https://quicktoolslive.com/sitemap.xml
+Sitemap: https://www.quicktoolslive.com/sitemap.xml
