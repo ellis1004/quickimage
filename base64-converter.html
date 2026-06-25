@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Base64 編碼/解碼與圖片轉換工具 - Base64Convert | QuickToolsLive</title>
+  <meta name="description" content="免費、即時的 Base64 轉換器。支援 UTF-8 文字與 Base64 雙向編解碼，以及圖片轉成 Base64 DataURL，純前端處理安全防洩密。">
+  <link rel="canonical" href="https://www.quicktoolslive.com/base64-converter.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-container">
+    <header>
+      <div class="logo-section">
+        <h1><a href="index.html" style="text-decoration:none; color:inherit; background:var(--accent-gradient); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">QuickToolsLive</a></h1>
+      </div>
+      <nav class="nav-links">
+        <a href="index.html" class="nav-link">🏠 首頁大廳</a>
+        <a href="image-compressor.html" class="nav-link">🖼️ 圖片壓縮</a>
+        <a href="random-picker.html" class="nav-link">🎯 隨機抽籤</a>
+        <a href="focus-timer.html" class="nav-link">⏱️ 專注計時</a>
+        <div class="dropdown">
+          <a href="#" class="nav-link dropdown-toggle active">✨ 更多工具</a>
+          <div class="dropdown-content">
+            <a href="word-counter.html">✍️ 字數統計器</a>
+            <a href="password-generator.html">🔒 密碼產生器</a>
+            <a href="json-formatter.html">💻 JSON 格式化</a>
+            <a href="css-generator.html">🎨 CSS 陰影與玻璃</a>
+            <a href="qr-code.html">📱 QR Code 產生器</a>
+            <a href="unit-converter.html">⚖️ 單位換算器</a>
+            <a href="color-converter.html">🌈 色彩代碼轉換</a>
+            <a href="base64-converter.html" class="active">🔑 Base64 編解碼</a>
+            <a href="date-calculator.html">📅 日期計算器</a>
+            <a href="speech-assistant.html">🗣️ 語音助理</a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <div class="ad-banner">
+      <span>廣告版位預留 (Responsive Banner Ad)</span>
+    </div>
+
+    <div class="main-grid">
+      <div class="workspace">
+        <div class="glass-card">
+          <h2 style="margin-bottom: 1.5rem;">🔑 Base64 編碼與解碼助手</h2>
+          
+          <div class="tabs-header">
+            <button class="tab-btn active" id="tab-text-btn">✍️ 文字編解碼</button>
+            <button class="tab-btn" id="tab-image-btn">🖼️ 圖片轉 Base64</button>
+          </div>
+
+          <!-- Tab 1: Text -->
+          <div id="tab-text-content" class="tab-content active">
+            <div class="picker-layout" style="grid-template-columns: 1fr 1fr;">
+              <div>
+                <div style="font-weight:600; margin-bottom:0.5rem; font-size:0.9rem; color:var(--text-secondary);">純文字輸入 (UTF-8)：</div>
+                <textarea id="text-input" class="textarea-custom" placeholder="請在此輸入要進行 Base64 轉換的純文字..." style="min-height: 250px;"></textarea>
+              </div>
+              <div>
+                <div style="font-weight:600; margin-bottom:0.5rem; font-size:0.9rem; color:var(--text-secondary);">Base64 結果：</div>
+                <textarea id="base64-output" class="textarea-custom" placeholder="編碼或解碼後的結果將會顯示在此..." style="min-height: 250px; font-family:monospace; font-size:0.85rem;"></textarea>
+              </div>
+            </div>
+            
+            <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap:0.75rem; margin-top:1.5rem;">
+              <button class="btn btn-primary" id="btn-encode">⚡ Base64 編碼</button>
+              <button class="btn btn-primary" id="btn-decode">🔓 Base64 解碼</button>
+              <button class="btn btn-secondary" id="btn-text-clear">🧹 清空</button>
+              <button class="btn btn-secondary" id="btn-text-copy">📋 複製結果</button>
+            </div>
+          </div>
+
+          <!-- Tab 2: Image to Base64 -->
+          <div id="tab-image-content" class="tab-content">
+            <div class="dropzone" id="img-dropzone">
+              <div class="dropzone-icon">
+                <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zm-5.04-6.71l-3 3.79-2.03-2.72L6 17h12l-4.04-4.71z"/></svg>
+              </div>
+              <h3>拖曳圖片至此或點擊上傳</h3>
+              <p>支援 PNG, JPG, WebP 格式圖片</p>
+              <input type="file" id="img-file" class="file-input" accept="image/*">
+            </div>
+
+            <div id="img-result-box" class="glass-card" style="background:rgba(255,255,255,0.02); margin-top:1.5rem; display:none; border-color:var(--border-color);">
+              <div class="picker-layout" style="grid-template-columns: 80px 1fr; margin-bottom:1rem; align-items:center;">
+                <div style="width:80px; height:80px; border-radius:var(--radius-sm); border:1px solid var(--border-color); overflow:hidden; display:flex; justify-content:center; align-items:center; background:#fff;">
+                  <img id="img-preview" style="max-width:100%; max-height:100%; object-fit:contain;">
+                </div>
+                <div>
+                  <div style="font-weight:700; color:var(--accent-color); font-size:1rem;">Base64 DataURL (可直接用於 HTML/CSS):</div>
+                </div>
+              </div>
+              <textarea id="img-base64-output" class="textarea-custom" readonly style="min-height:150px; font-family:monospace; font-size:0.8rem; margin-bottom:1rem;"></textarea>
+              <button class="btn btn-primary" id="btn-img-copy" style="width:100%;">📋 複製 Base64 代碼</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ad-sidebar">
+        <div class="ad-skyscraper">
+          <span>廣告版位預留 (Skyscraper Ad)</span>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>&copy; 2026 QuickToolsLive. All Rights Reserved. | <a href="privacy.html" style="color:var(--text-muted); text-decoration:none;">隱私權政策</a></p>
+    </footer>
+  </div>
+  <script src="base64-converter.js"></script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>多功能單位與匯率換算器 - UnitConvertAll | QuickToolsLive</title>
+  <meta name="description" content="免費、即時的單位換算與外國匯率計算工具。支援長度、重量、溫度與主要國家貨幣（如台幣、美金、日圓、歐元）換算，自動抓取匯率，操作簡單。">
+  <link rel="canonical" href="https://www.quicktoolslive.com/unit-converter.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-container">
+    <header>
+      <div class="logo-section">
+        <h1><a href="index.html" style="text-decoration:none; color:inherit; background:var(--accent-gradient); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">QuickToolsLive</a></h1>
+      </div>
+      <nav class="nav-links">
+        <a href="index.html" class="nav-link">🏠 首頁大廳</a>
+        <a href="image-compressor.html" class="nav-link">🖼️ 圖片壓縮</a>
+        <a href="random-picker.html" class="nav-link">🎯 隨機抽籤</a>
+        <a href="focus-timer.html" class="nav-link">⏱️ 專注計時</a>
+        <div class="dropdown">
+          <a href="#" class="nav-link dropdown-toggle active">✨ 更多工具</a>
+          <div class="dropdown-content">
+            <a href="word-counter.html">✍️ 字數統計器</a>
+            <a href="password-generator.html">🔒 密碼產生器</a>
+            <a href="json-formatter.html">💻 JSON 格式化</a>
+            <a href="css-generator.html">🎨 CSS 陰影與玻璃</a>
+            <a href="qr-code.html">📱 QR Code 產生器</a>
+            <a href="unit-converter.html" class="active">⚖️ 單位換算器</a>
+            <a href="color-converter.html">🌈 色彩代碼轉換</a>
+            <a href="base64-converter.html">🔑 Base64 編解碼</a>
+            <a href="date-calculator.html">📅 日期計算器</a>
+            <a href="speech-assistant.html">🗣️ 語音助理</a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <div class="ad-banner">
+      <span>廣告版位預留 (Responsive Banner Ad)</span>
+    </div>
+
+    <div class="main-grid">
+      <div class="workspace">
+        <div class="glass-card">
+          <h2 style="margin-bottom: 1.5rem;">⚖️ 多功能單位與匯率換算器</h2>
+          
+          <div class="control-group" style="margin-bottom:1.5rem;">
+            <div class="control-label"><span>選擇換算類別:</span></div>
+            <div class="select-wrapper">
+              <select id="convert-category">
+                <option value="length">📏 長度 (Length)</option>
+                <option value="weight">⚖️ 重量 (Weight)</option>
+                <option value="temp">🌡️ 溫度 (Temperature)</option>
+                <option value="currency">💵 匯率 (Currency)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="picker-layout" style="grid-template-columns: 1fr 1fr;">
+            <div class="picker-input-area">
+              <div class="control-group">
+                <div class="control-label"><span>數值 (From):</span></div>
+                <input type="number" id="input-val" class="textarea-custom" value="1" style="min-height:46px; padding:0.75rem 1rem;">
+              </div>
+              <div class="control-group" style="margin-top:1rem;">
+                <div class="control-label"><span>來源單位:</span></div>
+                <div class="select-wrapper">
+                  <select id="unit-from"></select>
+                </div>
+              </div>
+            </div>
+            <div class="picker-input-area">
+              <div class="control-group">
+                <div class="control-label"><span>換算結果 (To):</span></div>
+                <input type="number" id="output-val" class="textarea-custom" readonly style="min-height:46px; padding:0.75rem 1rem; background:rgba(255,255,255,0.02);">
+              </div>
+              <div class="control-group" style="margin-top:1rem;">
+                <div class="control-label"><span>目標單位:</span></div>
+                <div class="select-wrapper">
+                  <select id="unit-to"></select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ad-sidebar">
+        <div class="ad-skyscraper">
+          <span>廣告版位預留 (Skyscraper Ad)</span>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>&copy; 2026 QuickToolsLive. All Rights Reserved. | <a href="privacy.html" style="color:var(--text-muted); text-decoration:none;">隱私權政策</a></p>
+    </footer>
+  </div>
+  <script src="unit-converter.js"></script>
+</body>
+</html>

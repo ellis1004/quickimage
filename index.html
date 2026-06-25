@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>QuickImage 快捷工具箱 - 免費線上實用工具集合</title>
-  <meta name="description" content="QuickImage 快捷工具箱提供多款免費、免安裝的線上小工具，包括圖片壓縮格式轉換、隨機抽籤轉盤、番茄工作法專注計時與白噪音放鬆背景音。100% 保護隱私，完全在您的瀏覽器端執行。">
-  <meta name="keywords" content="線上工具箱, 圖片壓縮, 隨機轉盤, 抽籤器, 番茄鐘線上, 白噪音, 網頁工具, 免費工具">
+  <title>QuickToolsLive 快捷工具箱 - 免費線上實用工具集合</title>
+  <meta name="description" content="QuickToolsLive 快捷工具箱提供多款免費、免安裝的線上小工具，包括圖片壓縮格式轉換、隨機抽籤轉盤、番茄工作法專注計時與白噪音放鬆背景音，以及字數統計、安全密碼生成、JSON格式化等實用功能。100% 保護隱私，完全在您的瀏覽器端執行。">
+  <meta name="keywords" content="線上工具箱, 圖片壓縮, 隨機轉盤, 抽籤器, 番茄鐘線上, 白噪音, 字數統計, 密碼生成器, JSON格式化, 免費網頁工具">
   <link rel="canonical" href="https://www.quicktoolslive.com/">
   
   <!-- Google Fonts: Outfit & Inter -->
@@ -91,8 +91,8 @@
     }
 
     .tool-icon {
-      font-size: 3rem;
-      margin-bottom: 1rem;
+      font-size: 2.5rem;
+      margin-bottom: 1.25rem;
       display: inline-block;
     }
 
@@ -122,8 +122,8 @@
     <!-- Header with Navigation -->
     <header>
       <div class="logo-section">
-        <h1 style="display: flex; align-items: center; gap: 0.5rem; font-size: 1.75rem; font-weight: 800;">
-          <a href="index.html" style="text-decoration: none; color: inherit; background: var(--accent-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">QuickImage 快捷工具箱</a>
+        <h1>
+          <a href="index.html" style="text-decoration: none; color: inherit; background: var(--accent-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">QuickToolsLive</a>
         </h1>
       </div>
       <nav class="nav-links">
@@ -131,6 +131,21 @@
         <a href="image-compressor.html" class="nav-link">🖼️ 圖片壓縮</a>
         <a href="random-picker.html" class="nav-link">🎯 隨機抽籤</a>
         <a href="focus-timer.html" class="nav-link">⏱️ 專注計時</a>
+        <div class="dropdown">
+          <a href="#" class="nav-link dropdown-toggle">✨ 更多工具</a>
+          <div class="dropdown-content">
+            <a href="word-counter.html">✍️ 字數統計器</a>
+            <a href="password-generator.html">🔒 密碼產生器</a>
+            <a href="json-formatter.html">💻 JSON 格式化</a>
+            <a href="css-generator.html">🎨 CSS 陰影與玻璃</a>
+            <a href="qr-code.html">📱 QR Code 產生器</a>
+            <a href="unit-converter.html">⚖️ 單位換算器</a>
+            <a href="color-converter.html">🌈 色彩代碼轉換</a>
+            <a href="base64-converter.html">🔑 Base64 編解碼</a>
+            <a href="date-calculator.html">📅 日期計算器</a>
+            <a href="speech-assistant.html">🗣️ 語音助理</a>
+          </div>
+        </div>
       </nav>
     </header>
 
@@ -187,6 +202,126 @@
             </div>
             <a href="focus-timer.html" class="btn btn-primary tool-btn">進入專注計時 →</a>
           </div>
+
+          <!-- Card 4: Word Counter -->
+          <div class="glass-card tool-card">
+            <div class="tool-card-content">
+              <span class="tool-icon">✍️</span>
+              <h3 class="tool-title">WordCounterPro 字數統計</h3>
+              <p class="tool-description">
+                即時統計中英文字數、字元（含/不含空白）、段落數、閱讀時間及關鍵字詞頻率分析。寫手與學生的最佳工具。
+              </p>
+            </div>
+            <a href="word-counter.html" class="btn btn-primary tool-btn">進入字數統計 →</a>
+          </div>
+
+          <!-- Card 5: Password Generator -->
+          <div class="glass-card tool-card">
+            <div class="tool-card-content">
+              <span class="tool-icon">🔒</span>
+              <h3 class="tool-title">PassGenSec 密碼產生器</h3>
+              <p class="tool-description">
+                一鍵產生隨機安全強密碼，可自訂長度與字元規則，支援密碼強度即時檢測與一鍵複製。安全本地防漏。
+              </p>
+            </div>
+            <a href="password-generator.html" class="btn btn-primary tool-btn">進入密碼產生器 →</a>
+          </div>
+
+          <!-- Card 6: JSON Formatter -->
+          <div class="glass-card tool-card">
+            <div class="tool-card-content">
+              <span class="tool-icon">💻</span>
+              <h3 class="tool-title">DevTextHelper JSON 格式化</h3>
+              <p class="tool-description">
+                線上 JSON 格式化、美化、校正與壓縮，支援縮排規則自訂與錯誤行號提示，開發者日常除錯必備。
+              </p>
+            </div>
+            <a href="json-formatter.html" class="btn btn-primary tool-btn">進入 JSON 格式化 →</a>
+          </div>
+
+          <!-- Card 7: CSS Generator -->
+          <div class="glass-card tool-card">
+            <div class="tool-card-content">
+              <span class="tool-icon">🎨</span>
+              <h3 class="tool-title">CSSGenPro 陰影與玻璃產生器</h3>
+              <p class="tool-description">
+                即時設計玻璃擬態與 Box-Shadow 效果，提供拖拉式滑桿進行視覺化微調，自動生成對應的 CSS 程式碼。
+              </p>
+            </div>
+            <a href="css-generator.html" class="btn btn-primary tool-btn">進入 CSS 產生器 →</a>
+          </div>
+
+          <!-- Card 8: QR Code -->
+          <div class="glass-card tool-card">
+            <div class="tool-card-content">
+              <span class="tool-icon">📱</span>
+              <h3 class="tool-title">QuickQRLink QR Code 工具</h3>
+              <p class="tool-description">
+                輸入網址即時生成 QR Code 二維碼下載（可自選前景色），同時支援上傳圖片純前端解碼解析二維碼。
+              </p>
+            </div>
+            <a href="qr-code.html" class="btn btn-primary tool-btn">進入 QR Code 工具 →</a>
+          </div>
+
+          <!-- Card 9: Unit Converter -->
+          <div class="glass-card tool-card">
+            <div class="tool-card-content">
+              <span class="tool-icon">⚖️</span>
+              <h3 class="tool-title">UnitConvertAll 單位換算器</h3>
+              <p class="tool-description">
+                支援長度、重量、溫度等多種單位轉換；同時串接免費即時匯率 API 提供熱門國家貨幣匯率換算。
+              </p>
+            </div>
+            <a href="unit-converter.html" class="btn btn-primary tool-btn">進入單位換算器 →</a>
+          </div>
+
+          <!-- Card 10: Color Converter -->
+          <div class="glass-card tool-card">
+            <div class="tool-card-content">
+              <span class="tool-icon">🌈</span>
+              <h3 class="tool-title">ColorConverter 色彩轉換器</h3>
+              <p class="tool-description">
+                HEX / RGB / HSL 顏色代碼雙向即時互轉，並提供一鍵隨機和諧配色調色盤（Color Palette）生成。
+              </p>
+            </div>
+            <a href="color-converter.html" class="btn btn-primary tool-btn">進入色彩轉換器 →</a>
+          </div>
+
+          <!-- Card 11: Base64 Converter -->
+          <div class="glass-card tool-card">
+            <div class="tool-card-content">
+              <span class="tool-icon">🔑</span>
+              <h3 class="tool-title">Base64Convert 編解碼工具</h3>
+              <p class="tool-description">
+                支援文字 Base64 安全編碼/解碼，以及上傳 JPG/PNG/WebP 圖片檔案一鍵轉換為 Base64 DataURL。
+              </p>
+            </div>
+            <a href="base64-converter.html" class="btn btn-primary tool-btn">進入 Base64 轉換 →</a>
+          </div>
+
+          <!-- Card 12: Date Calculator -->
+          <div class="glass-card tool-card">
+            <div class="tool-card-content">
+              <span class="tool-icon">📅</span>
+              <h3 class="tool-title">DateCal 日期計算與時間戳</h3>
+              <p class="tool-description">
+                計算兩個日期間隔天數、某日期加減天數的結果；並提供 Unix 時間戳與人類時間的即時雙向轉換。
+              </p>
+            </div>
+            <a href="date-calculator.html" class="btn btn-primary tool-btn">進入日期計算器 →</a>
+          </div>
+
+          <!-- Card 13: Speech Assistant -->
+          <div class="glass-card tool-card">
+            <div class="tool-card-content">
+              <span class="tool-icon">🗣️</span>
+              <h3 class="tool-title">SpeechWeb 語音輸入與助理</h3>
+              <p class="tool-description">
+                利用內建 API 進行麥克風錄音聽寫、語音轉文字；同時提供文字轉語音（TTS）朗讀，支援調整音量語速。
+              </p>
+            </div>
+            <a href="speech-assistant.html" class="btn btn-primary tool-btn">進入語音助理 →</a>
+          </div>
         </div>
 
         <!-- FAQ & SEO Content -->
@@ -213,7 +348,7 @@
 
     <!-- Footer -->
     <footer>
-      <p>&copy; 2026 QuickImage 快捷工具箱. All rights reserved. | <a href="privacy.html" style="color: var(--text-secondary); text-decoration: none;">隱私權政策 (Privacy Policy)</a></p>
+      <p>&copy; 2026 QuickToolsLive. All rights reserved. | <a href="privacy.html" style="color: var(--text-secondary); text-decoration: none;">隱私權政策 (Privacy Policy)</a></p>
     </footer>
   </div>
 

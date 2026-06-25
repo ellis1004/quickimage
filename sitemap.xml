@@ -32,6 +32,86 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- 線上字數統計器 -->
+  <url>
+    <loc>https://www.quicktoolslive.com/word-counter.html</loc>
+    <lastmod>2026-06-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 密碼產生器 -->
+  <url>
+    <loc>https://www.quicktoolslive.com/password-generator.html</loc>
+    <lastmod>2026-06-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- JSON 格式化工具 -->
+  <url>
+    <loc>https://www.quicktoolslive.com/json-formatter.html</loc>
+    <lastmod>2026-06-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- CSS 產生器 -->
+  <url>
+    <loc>https://www.quicktoolslive.com/css-generator.html</loc>
+    <lastmod>2026-06-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- QR Code 工具 -->
+  <url>
+    <loc>https://www.quicktoolslive.com/qr-code.html</loc>
+    <lastmod>2026-06-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 單位換算器 -->
+  <url>
+    <loc>https://www.quicktoolslive.com/unit-converter.html</loc>
+    <lastmod>2026-06-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 色彩轉換器 -->
+  <url>
+    <loc>https://www.quicktoolslive.com/color-converter.html</loc>
+    <lastmod>2026-06-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Base64 轉換器 -->
+  <url>
+    <loc>https://www.quicktoolslive.com/base64-converter.html</loc>
+    <lastmod>2026-06-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 日期計算器 -->
+  <url>
+    <loc>https://www.quicktoolslive.com/date-calculator.html</loc>
+    <lastmod>2026-06-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 語音助理 -->
+  <url>
+    <loc>https://www.quicktoolslive.com/speech-assistant.html</loc>
+    <lastmod>2026-06-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <!-- 隱私權政策頁面 -->
   <url>
     <loc>https://www.quicktoolslive.com/privacy.html</loc>

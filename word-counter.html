@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>線上字數統計器 - WordCounterPro | QuickToolsLive</title>
+  <meta name="description" content="免費、即時的線上字數統計與字元計數工具。支援中文字數、英文單字量、段落、空白字元統計，並估算閱讀時間與關鍵字頻率，100% 在本機執行保護您的隱私。">
+  <link rel="canonical" href="https://www.quicktoolslive.com/word-counter.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-container">
+    <header>
+      <div class="logo-section">
+        <h1><a href="index.html" style="text-decoration:none; color:inherit; background:var(--accent-gradient); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">QuickToolsLive</a></h1>
+      </div>
+      <nav class="nav-links">
+        <a href="index.html" class="nav-link">🏠 首頁大廳</a>
+        <a href="image-compressor.html" class="nav-link">🖼️ 圖片壓縮</a>
+        <a href="random-picker.html" class="nav-link">🎯 隨機抽籤</a>
+        <a href="focus-timer.html" class="nav-link">⏱️ 專注計時</a>
+        <div class="dropdown">
+          <a href="#" class="nav-link dropdown-toggle active">✨ 更多工具</a>
+          <div class="dropdown-content">
+            <a href="word-counter.html" class="active">✍️ 字數統計器</a>
+            <a href="password-generator.html">🔒 密碼產生器</a>
+            <a href="json-formatter.html">💻 JSON 格式化</a>
+            <a href="css-generator.html">🎨 CSS 陰影與玻璃</a>
+            <a href="qr-code.html">📱 QR Code 產生器</a>
+            <a href="unit-converter.html">⚖️ 單位換算器</a>
+            <a href="color-converter.html">🌈 色彩代碼轉換</a>
+            <a href="base64-converter.html">🔑 Base64 編解碼</a>
+            <a href="date-calculator.html">📅 日期計算器</a>
+            <a href="speech-assistant.html">🗣️ 語音助理</a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <div class="ad-banner">
+      <span>廣告版位預留 (Responsive Banner Ad)</span>
+    </div>
+
+    <div class="main-grid">
+      <div class="workspace">
+        <div class="glass-card">
+          <h2 style="margin-bottom: 1.5rem;">✍️ 線上字數與字元統計器</h2>
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-val" id="stat-words">0</div>
+              <div class="stat-lbl">總字數 (中+英)</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-val" id="stat-chars-space">0</div>
+              <div class="stat-lbl">字元數 (含空白)</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-val" id="stat-chars-nospace">0</div>
+              <div class="stat-lbl">字元數 (不含空白)</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-val" id="stat-paragraphs">0</div>
+              <div class="stat-lbl">段落數</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-val" id="stat-readtime">0m</div>
+              <div class="stat-lbl">預估閱讀時間</div>
+            </div>
+          </div>
+          <textarea id="word-input" class="textarea-custom" placeholder="請在此輸入或貼上您的文字，統計結果將會即時更新..." style="min-height: 250px; margin-bottom: 1.5rem;"></textarea>
+          <div style="display:flex; gap:1rem;">
+            <button class="btn btn-secondary" id="btn-clear" style="flex:1;">🧹 清除文字</button>
+            <button class="btn btn-primary" id="btn-copy" style="flex:1;">📋 複製文字</button>
+          </div>
+        </div>
+
+        <div class="glass-card" style="margin-top: 1.5rem;">
+          <h3 style="margin-bottom: 1rem;">📝 常見問答 & 工具介紹</h3>
+          <p style="color:var(--text-secondary); line-height:1.6; font-size:0.95rem;">
+            本字數統計器完全在您的瀏覽器本機端執行，您的文字內容絕對不會被上傳到任何伺服器，對隱私保護 100% 安全。支援即時統計，無論是用於 Google 廣告文案（Sitelink 說明字數限 35 字元）、FB/IG 社群貼文、或是論文寫作，都是您最得力的助手。
+          </p>
+        </div>
+      </div>
+
+      <div class="ad-sidebar">
+        <div class="ad-skyscraper">
+          <span>廣告版位預留 (Skyscraper Ad)</span>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>&copy; 2026 QuickToolsLive. All Rights Reserved. | <a href="privacy.html" style="color:var(--text-muted); text-decoration:none;">隱私權政策</a></p>
+    </footer>
+  </div>
+  <script src="word-counter.js"></script>
+</body>
+</html>

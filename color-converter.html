@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>色彩代碼轉換與調色盤產生器 - ColorConverter | QuickToolsLive</title>
+  <meta name="description" content="免費線上色彩空間轉換與配色產生器。支援 HEX、RGB、HSL 顏色代碼雙向即時互轉，並提供一鍵隨機和諧配色調色盤，點擊即可複製顏色代碼。">
+  <link rel="canonical" href="https://www.quicktoolslive.com/color-converter.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-container">
+    <header>
+      <div class="logo-section">
+        <h1><a href="index.html" style="text-decoration:none; color:inherit; background:var(--accent-gradient); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">QuickToolsLive</a></h1>
+      </div>
+      <nav class="nav-links">
+        <a href="index.html" class="nav-link">🏠 首頁大廳</a>
+        <a href="image-compressor.html" class="nav-link">🖼️ 圖片壓縮</a>
+        <a href="random-picker.html" class="nav-link">🎯 隨機抽籤</a>
+        <a href="focus-timer.html" class="nav-link">⏱️ 專注計時</a>
+        <div class="dropdown">
+          <a href="#" class="nav-link dropdown-toggle active">✨ 更多工具</a>
+          <div class="dropdown-content">
+            <a href="word-counter.html">✍️ 字數統計器</a>
+            <a href="password-generator.html">🔒 密碼產生器</a>
+            <a href="json-formatter.html">💻 JSON 格式化</a>
+            <a href="css-generator.html">🎨 CSS 陰影與玻璃</a>
+            <a href="qr-code.html">📱 QR Code 產生器</a>
+            <a href="unit-converter.html">⚖️ 單位換算器</a>
+            <a href="color-converter.html" class="active">🌈 色彩代碼轉換</a>
+            <a href="base64-converter.html">🔑 Base64 編解碼</a>
+            <a href="date-calculator.html">📅 日期計算器</a>
+            <a href="speech-assistant.html">🗣️ 語音助理</a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <div class="ad-banner">
+      <span>廣告版位預留 (Responsive Banner Ad)</span>
+    </div>
+
+    <div class="main-grid">
+      <div class="workspace">
+        <div class="glass-card">
+          <h2 style="margin-bottom: 1.5rem;">🌈 色彩代碼轉換與調色盤產生器</h2>
+          
+          <div class="picker-layout" style="grid-template-columns: 1fr 1fr;">
+            <div class="picker-input-area">
+              <div class="control-group">
+                <div class="control-label"><span>色彩代碼輸入:</span></div>
+                <input type="text" id="color-input" class="textarea-custom" value="#6366f1" placeholder="例如 #6366f1, rgb(99, 102, 241)..." style="min-height:46px; padding:0.75rem 1rem;">
+              </div>
+              <div class="control-group" style="margin-top:1rem;">
+                <div class="control-label"><span>HEX:</span></div>
+                <input type="text" id="color-hex" class="textarea-custom" readonly style="min-height:42px; padding:0.6rem 1rem; background:rgba(255,255,255,0.02); font-family:monospace;">
+              </div>
+              <div class="control-group" style="margin-top:0.75rem;">
+                <div class="control-label"><span>RGB:</span></div>
+                <input type="text" id="color-rgb" class="textarea-custom" readonly style="min-height:42px; padding:0.6rem 1rem; background:rgba(255,255,255,0.02); font-family:monospace;">
+              </div>
+              <div class="control-group" style="margin-top:0.75rem;">
+                <div class="control-label"><span>HSL:</span></div>
+                <input type="text" id="color-hsl" class="textarea-custom" readonly style="min-height:42px; padding:0.6rem 1rem; background:rgba(255,255,255,0.02); font-family:monospace;">
+              </div>
+            </div>
+            <div style="display:flex; flex-direction:column; justify-content:center; align-items:center;">
+              <div id="color-preview" class="color-preview-block">#6366F1</div>
+              <input type="color" id="native-color-picker" value="#6366f1" style="width:100%; height:40px; border-radius:var(--radius-sm); border:none; cursor:pointer;">
+            </div>
+          </div>
+        </div>
+
+        <div class="glass-card" style="margin-top: 1.5rem;">
+          <h3 style="margin-bottom: 1.25rem;">✨ 隨機配色調色盤</h3>
+          <div class="color-palette" id="palette-container">
+            <div class="palette-color" style="background:#6366f1;">#6366f1</div>
+            <div class="palette-color" style="background:#a855f7;">#a855f7</div>
+            <div class="palette-color" style="background:#3b82f6;">#3b82f6</div>
+            <div class="palette-color" style="background:#10b981;">#10b981</div>
+            <div class="palette-color" style="background:#f59e0b;">#f59e0b</div>
+          </div>
+          <button class="btn btn-primary" id="btn-generate-palette" style="width:100%;">🎲 隨機生成新配色方案</button>
+        </div>
+      </div>
+
+      <div class="ad-sidebar">
+        <div class="ad-skyscraper">
+          <span>廣告版位預留 (Skyscraper Ad)</span>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>&copy; 2026 QuickToolsLive. All Rights Reserved. | <a href="privacy.html" style="color:var(--text-muted); text-decoration:none;">隱私權政策</a></p>
+    </footer>
+  </div>
+  <script src="color-converter.js"></script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QR Code 產生與解碼器 - QuickQRLink | QuickToolsLive</title>
+  <meta name="description" content="免費線上 QR Code 產生與二維碼解碼工具。可自訂尺寸與顏色下載為 PNG 圖片，並支援上傳圖片純前端解析二維碼隱藏網址，隱私安全無虞。">
+  <link rel="canonical" href="https://www.quicktoolslive.com/qr-code.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <!-- Load QRCode library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <!-- Load jsQR library -->
+  <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.min.js"></script>
+</head>
+<body>
+  <div class="app-container">
+    <header>
+      <div class="logo-section">
+        <h1><a href="index.html" style="text-decoration:none; color:inherit; background:var(--accent-gradient); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">QuickToolsLive</a></h1>
+      </div>
+      <nav class="nav-links">
+        <a href="index.html" class="nav-link">🏠 首頁大廳</a>
+        <a href="image-compressor.html" class="nav-link">🖼️ 圖片壓縮</a>
+        <a href="random-picker.html" class="nav-link">🎯 隨機抽籤</a>
+        <a href="focus-timer.html" class="nav-link">⏱️ 專注計時</a>
+        <div class="dropdown">
+          <a href="#" class="nav-link dropdown-toggle active">✨ 更多工具</a>
+          <div class="dropdown-content">
+            <a href="word-counter.html">✍️ 字數統計器</a>
+            <a href="password-generator.html">🔒 密碼產生器</a>
+            <a href="json-formatter.html">💻 JSON 格式化</a>
+            <a href="css-generator.html">🎨 CSS 陰影與玻璃</a>
+            <a href="qr-code.html" class="active">📱 QR Code 產生器</a>
+            <a href="unit-converter.html">⚖️ 單位換算器</a>
+            <a href="color-converter.html">🌈 色彩代碼轉換</a>
+            <a href="base64-converter.html">🔑 Base64 編解碼</a>
+            <a href="date-calculator.html">📅 日期計算器</a>
+            <a href="speech-assistant.html">🗣️ 語音助理</a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <div class="ad-banner">
+      <span>廣告版位預留 (Responsive Banner Ad)</span>
+    </div>
+
+    <div class="main-grid">
+      <div class="workspace">
+        <div class="glass-card">
+          <h2 style="margin-bottom: 1.5rem;">📱 QR Code 產生與解碼器</h2>
+          
+          <div class="tabs-header">
+            <button class="tab-btn active" id="tab-gen-btn">⚡ 產生 QR Code</button>
+            <button class="tab-btn" id="tab-read-btn">🔍 解碼 QR Code</button>
+          </div>
+
+          <!-- Tab 1: Generate -->
+          <div id="tab-gen-content" class="tab-content active">
+            <div class="picker-layout" style="grid-template-columns: 1fr 260px;">
+              <div class="picker-input-area">
+                <div class="control-group">
+                  <div class="control-label"><span>QR Code 內容 (網址或文字):</span></div>
+                  <textarea id="qr-text" class="textarea-custom" placeholder="請在此輸入要生成 QR Code 的網址或文字，如 https://google.com..." style="min-height:100px;"></textarea>
+                </div>
+                <div class="control-group" style="margin-top:1rem;">
+                  <div class="control-label"><span>前景色 (Foreground):</span></div>
+                  <input type="color" id="qr-fg" value="#000000" style="width:100%; height:40px; border-radius:var(--radius-sm); border:none; cursor:pointer;">
+                </div>
+              </div>
+              <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; gap:1rem;">
+                <div id="qrcode-container" style="background:#fff; padding:15px; border-radius:var(--radius-md); display:flex; justify-content:center; align-items:center; min-height:160px; min-width:160px; box-shadow:0 8px 24px rgba(0,0,0,0.3);">
+                  <div id="qrcode"></div>
+                </div>
+                <button class="btn btn-primary" id="btn-download" style="width:100%;">💾 下載圖片</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tab 2: Decode -->
+          <div id="tab-read-content" class="tab-content">
+            <div class="dropzone" id="qr-dropzone">
+              <div class="dropzone-icon">
+                <svg viewBox="0 0 24 24"><path d="M4 4h7V2H4c-1.1 0-2 .9-2 2v7h2V4zm6 9l-4 5h12l-3-4-2.03 2.71L10 13zm7-11h-7v2h7v7h2V4c0-1.1-.9-2-2-2zM4 20h7v2H4c-1.1 0-2-.9-2-2v-7h2v7zm15-7h2v7c0 1.1-.9 2-2 2h-7v-2h7v-7z"/></svg>
+              </div>
+              <h3>拖曳 QR Code 圖片至此或點擊上傳</h3>
+              <p>支援 PNG, JPG, WebP 格式圖片</p>
+              <input type="file" id="qr-file" class="file-input" accept="image/*">
+            </div>
+            
+            <div id="qr-result-box" class="glass-card" style="background:rgba(255,255,255,0.02); margin-top:1.5rem; display:none; border-color:var(--border-color);">
+              <div style="font-weight:700; color:var(--accent-color); margin-bottom:0.5rem; font-size:1rem;">🔍 解析結果:</div>
+              <textarea id="qr-result-text" class="textarea-custom" readonly style="min-height:80px; font-family:monospace; background:transparent; border:none; padding:0; outline:none; resize:none;"></textarea>
+              <button class="btn btn-secondary" id="btn-copy-result" style="width:100%; margin-top:1rem;">📋 複製結果</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ad-sidebar">
+        <div class="ad-skyscraper">
+          <span>廣告版位預留 (Skyscraper Ad)</span>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>&copy; 2026 QuickToolsLive. All Rights Reserved. | <a href="privacy.html" style="color:var(--text-muted); text-decoration:none;">隱私權政策</a></p>
+    </footer>
+  </div>
+  <!-- Canvas for decoding -->
+  <canvas id="qr-canvas" style="display:none;"></canvas>
+  <script src="qr-code.js"></script>
+</body>
+</html>

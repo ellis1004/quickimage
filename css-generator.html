@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS 漸層與陰影產生器 - CSSGenPro | QuickToolsLive</title>
+  <meta name="description" content="免費線上 CSS 視覺設計輔助產生器。提供 Glassmorphism 玻璃擬態與 Box-Shadow 盒子陰影即時調整、代碼生成與複製，大幅節省前端與網頁設計開發時間。">
+  <link rel="canonical" href="https://www.quicktoolslive.com/css-generator.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-container">
+    <header>
+      <div class="logo-section">
+        <h1><a href="index.html" style="text-decoration:none; color:inherit; background:var(--accent-gradient); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">QuickToolsLive</a></h1>
+      </div>
+      <nav class="nav-links">
+        <a href="index.html" class="nav-link">🏠 首頁大廳</a>
+        <a href="image-compressor.html" class="nav-link">🖼️ 圖片壓縮</a>
+        <a href="random-picker.html" class="nav-link">🎯 隨機抽籤</a>
+        <a href="focus-timer.html" class="nav-link">⏱️ 專注計時</a>
+        <div class="dropdown">
+          <a href="#" class="nav-link dropdown-toggle active">✨ 更多工具</a>
+          <div class="dropdown-content">
+            <a href="word-counter.html">✍️ 字數統計器</a>
+            <a href="password-generator.html">🔒 密碼產生器</a>
+            <a href="json-formatter.html">💻 JSON 格式化</a>
+            <a href="css-generator.html" class="active">🎨 CSS 陰影與玻璃</a>
+            <a href="qr-code.html">📱 QR Code 產生器</a>
+            <a href="unit-converter.html">⚖️ 單位換算器</a>
+            <a href="color-converter.html">🌈 色彩代碼轉換</a>
+            <a href="base64-converter.html">🔑 Base64 編解碼</a>
+            <a href="date-calculator.html">📅 日期計算器</a>
+            <a href="speech-assistant.html">🗣️ 語音助理</a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <div class="ad-banner">
+      <span>廣告版位預留 (Responsive Banner Ad)</span>
+    </div>
+
+    <div class="main-grid">
+      <div class="workspace">
+        <div class="glass-card">
+          <h2 style="margin-bottom: 1.5rem;">🎨 CSS 陰影與玻璃擬態產生器</h2>
+          
+          <div class="tabs-header">
+            <button class="tab-btn active" id="tab-glass-btn">🧪 玻璃擬態 (Glassmorphism)</button>
+            <button class="tab-btn" id="tab-shadow-btn">🌑 盒子陰影 (Box Shadow)</button>
+          </div>
+
+          <div class="picker-layout">
+            <div class="picker-input-area" style="gap:1rem;">
+              <!-- Glass Controls -->
+              <div id="glass-controls">
+                <div class="control-group" style="margin-bottom:1rem;">
+                  <div class="control-label"><span>透明度 (Opacity):</span> <span class="value" id="glass-opacity-val">0.25</span></div>
+                  <input type="range" id="glass-opacity" min="0" max="1" step="0.05" value="0.25">
+                </div>
+                <div class="control-group" style="margin-bottom:1rem;">
+                  <div class="control-label"><span>模糊度 (Blur):</span> <span class="value" id="glass-blur-val">12px</span></div>
+                  <input type="range" id="glass-blur" min="0" max="40" step="1" value="12">
+                </div>
+                <div class="control-group" style="margin-bottom:1rem;">
+                  <div class="control-label"><span>邊框不透明度 (Border Opacity):</span> <span class="value" id="glass-border-val">0.1</span></div>
+                  <input type="range" id="glass-border" min="0" max="1" step="0.05" value="0.1">
+                </div>
+              </div>
+
+              <!-- Shadow Controls -->
+              <div id="shadow-controls" style="display:none;">
+                <div class="control-group" style="margin-bottom:1rem;">
+                  <div class="control-label"><span>水平位移 (X):</span> <span class="value" id="shadow-x-val">0px</span></div>
+                  <input type="range" id="shadow-x" min="-50" max="50" step="1" value="0">
+                </div>
+                <div class="control-group" style="margin-bottom:1rem;">
+                  <div class="control-label"><span>垂直位移 (Y):</span> <span class="value" id="shadow-y-val">8px</span></div>
+                  <input type="range" id="shadow-y" min="-50" max="50" step="1" value="8">
+                </div>
+                <div class="control-group" style="margin-bottom:1rem;">
+                  <div class="control-label"><span>模糊半徑 (Blur):</span> <span class="value" id="shadow-blur-val">24px</span></div>
+                  <input type="range" id="shadow-blur" min="0" max="100" step="1" value="24">
+                </div>
+                <div class="control-group" style="margin-bottom:1rem;">
+                  <div class="control-label"><span>陰影顏色不透明度:</span> <span class="value" id="shadow-opacity-val">0.3</span></div>
+                  <input type="range" id="shadow-opacity" min="0" max="1" step="0.05" value="0.3">
+                </div>
+              </div>
+            </div>
+
+            <!-- Preview Block & Code -->
+            <div style="display:flex; flex-direction:column; justify-content:center;">
+              <div id="preview-wrapper" style="padding:2.5rem; background:radial-gradient(circle at center, #1e293b 0%, #0f172a 100%); border-radius:var(--radius-lg); display:flex; justify-content:center; align-items:center; margin-bottom:1.5rem; height:180px;">
+                <div id="preview-block" style="width:120px; height:120px; border-radius:var(--radius-md); display:flex; justify-content:center; align-items:center; font-weight:700; color:#fff; font-size:0.9rem;">預覽樣式</div>
+              </div>
+              <textarea id="css-output" class="textarea-custom" readonly style="min-height:100px; font-family:monospace; font-size:0.8rem; margin-bottom:1rem;"></textarea>
+              <button class="btn btn-primary" id="btn-copy">📋 複製 CSS 代碼</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ad-sidebar">
+        <div class="ad-skyscraper">
+          <span>廣告版位預留 (Skyscraper Ad)</span>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>&copy; 2026 QuickToolsLive. All Rights Reserved. | <a href="privacy.html" style="color:var(--text-muted); text-decoration:none;">隱私權政策</a></p>
+    </footer>
+  </div>
+  <script src="css-generator.js"></script>
+</body>
+</html>

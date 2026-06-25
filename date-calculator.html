@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>日期計算器與 Unix 時間戳轉換 - DateCal | QuickToolsLive</title>
+  <meta name="description" content="免費線上日期計算與時間戳轉換器。支援計算兩個日期間隔的天數、某日期加減天數後的新日期，以及 Unix 時間戳與人類時間的即時轉換。">
+  <link rel="canonical" href="https://www.quicktoolslive.com/date-calculator.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-container">
+    <header>
+      <div class="logo-section">
+        <h1><a href="index.html" style="text-decoration:none; color:inherit; background:var(--accent-gradient); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">QuickToolsLive</a></h1>
+      </div>
+      <nav class="nav-links">
+        <a href="index.html" class="nav-link">🏠 首頁大廳</a>
+        <a href="image-compressor.html" class="nav-link">🖼️ 圖片壓縮</a>
+        <a href="random-picker.html" class="nav-link">🎯 隨機抽籤</a>
+        <a href="focus-timer.html" class="nav-link">⏱️ 專注計時</a>
+        <div class="dropdown">
+          <a href="#" class="nav-link dropdown-toggle active">✨ 更多工具</a>
+          <div class="dropdown-content">
+            <a href="word-counter.html">✍️ 字數統計器</a>
+            <a href="password-generator.html">🔒 密碼產生器</a>
+            <a href="json-formatter.html">💻 JSON 格式化</a>
+            <a href="css-generator.html">🎨 CSS 陰影與玻璃</a>
+            <a href="qr-code.html">📱 QR Code 產生器</a>
+            <a href="unit-converter.html">⚖️ 單位換算器</a>
+            <a href="color-converter.html">🌈 色彩代碼轉換</a>
+            <a href="base64-converter.html">🔑 Base64 編解碼</a>
+            <a href="date-calculator.html" class="active">📅 日期計算器</a>
+            <a href="speech-assistant.html">🗣️ 語音助理</a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <div class="ad-banner">
+      <span>廣告版位預留 (Responsive Banner Ad)</span>
+    </div>
+
+    <div class="main-grid">
+      <div class="workspace">
+        <!-- Section 1: Date Calculations -->
+        <div class="glass-card">
+          <h2 style="margin-bottom: 1.5rem;">📅 日期計算器</h2>
+          
+          <div class="picker-layout" style="grid-template-columns: 1fr 1fr; margin-bottom:1.5rem; gap:1.5rem;">
+            <!-- Panel A: Interval -->
+            <div class="glass-card" style="background:rgba(255,255,255,0.01); border-color:var(--border-color); padding:1.25rem;">
+              <h3 style="margin-bottom:1rem; font-size:1.1rem; color:var(--accent-color);">計算兩日期間隔：</h3>
+              <div class="control-group">
+                <label class="control-label">起始日期:</label>
+                <input type="date" id="date-from" class="textarea-custom" style="min-height:42px; padding:0.5rem 1rem;">
+              </div>
+              <div class="control-group" style="margin-top:0.75rem;">
+                <label class="control-label">結束日期:</label>
+                <input type="date" id="date-to" class="textarea-custom" style="min-height:42px; padding:0.5rem 1rem;">
+              </div>
+              <div style="margin-top:1.25rem; font-weight:700; font-size:1rem; text-align:center;">
+                相差天數：<span id="days-result" style="color:var(--accent-color); font-size:1.4rem;">0</span> 天
+              </div>
+            </div>
+            
+            <!-- Panel B: Math -->
+            <div class="glass-card" style="background:rgba(255,255,255,0.01); border-color:var(--border-color); padding:1.25rem;">
+              <h3 style="margin-bottom:1rem; font-size:1.1rem; color:var(--accent-color);">日期加減計算：</h3>
+              <div class="control-group">
+                <label class="control-label">基準日期:</label>
+                <input type="date" id="date-base" class="textarea-custom" style="min-height:42px; padding:0.5rem 1rem;">
+              </div>
+              <div class="picker-layout" style="grid-template-columns: 1fr 100px; margin-top:0.75rem; gap:0.5rem;">
+                <div class="control-group">
+                  <label class="control-label">加減天數:</label>
+                  <input type="number" id="offset-days" class="textarea-custom" value="30" style="min-height:42px; padding:0.5rem 1rem;">
+                </div>
+                <div class="control-group">
+                  <label class="control-label">方向:</label>
+                  <div class="select-wrapper">
+                    <select id="offset-op" style="padding:0.5rem 1rem; min-height:42px;">
+                      <option value="add">增加 ➕</option>
+                      <option value="sub">減少 ➖</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div style="margin-top:1.25rem; font-weight:700; font-size:1rem; text-align:center;">
+                結果日期：<span id="date-math-result" style="color:var(--accent-color); font-size:1.2rem;">-</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 2: Timestamp -->
+        <div class="glass-card" style="margin-top:1.5rem;">
+          <h2 style="margin-bottom: 1.5rem;">⏱️ Unix 時間戳轉換</h2>
+          
+          <div class="picker-layout" style="grid-template-columns: 1fr 1fr; gap:1.5rem;">
+            <!-- Timestamp to Date -->
+            <div class="control-group">
+              <label class="control-label">Unix 時間戳 (秒/毫秒):</label>
+              <input type="number" id="timestamp-input" class="textarea-custom" placeholder="例如 1781247000..." style="min-height:46px; padding:0.75rem 1rem;">
+              <div style="display:flex; gap:0.5rem; margin-top:0.5rem;">
+                <button class="btn btn-secondary" id="btn-now-ts" style="flex:1; padding:0.4rem; font-size:0.85rem;">現在時間戳</button>
+                <button class="btn btn-primary" id="btn-convert-ts" style="flex:1; padding:0.4rem; font-size:0.85rem;">轉換 ⚡</button>
+              </div>
+              <div style="margin-top:1rem; font-size:0.95rem; font-weight:700;">
+                轉換結果：<span id="ts-date-result" style="color:var(--accent-color); font-family:monospace;">-</span>
+              </div>
+            </div>
+
+            <!-- Date to Timestamp -->
+            <div class="control-group">
+              <label class="control-label">本地日期與時間:</label>
+              <input type="datetime-local" id="datetime-input" class="textarea-custom" style="min-height:46px; padding:0.75rem 1rem;">
+              <div style="display:flex; gap:0.5rem; margin-top:0.5rem;">
+                <button class="btn btn-primary" id="btn-convert-dt" style="width:100%; padding:0.4rem; font-size:0.85rem;">轉換為時間戳 ⚡</button>
+              </div>
+              <div style="margin-top:1rem; font-size:0.95rem; font-weight:700;">
+                Unix 時間戳：<span id="dt-ts-result" style="color:var(--accent-color); font-family:monospace;">-</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ad-sidebar">
+        <div class="ad-skyscraper">
+          <span>廣告版位預留 (Skyscraper Ad)</span>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>&copy; 2026 QuickToolsLive. All Rights Reserved. | <a href="privacy.html" style="color:var(--text-muted); text-decoration:none;">隱私權政策</a></p>
+    </footer>
+  </div>
+  <script src="date-calculator.js"></script>
+</body>
+</html>

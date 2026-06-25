@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JSON 格式化與美化工具 - DevTextHelper | QuickToolsLive</title>
+  <meta name="description" content="免費線上 JSON 格式化、校正、壓縮與美化工具。支援大括號比對、縮排格式調整與錯誤提示，100% 離線運行保障數據安全性。">
+  <link rel="canonical" href="https://www.quicktoolslive.com/json-formatter.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-container">
+    <header>
+      <div class="logo-section">
+        <h1><a href="index.html" style="text-decoration:none; color:inherit; background:var(--accent-gradient); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">QuickToolsLive</a></h1>
+      </div>
+      <nav class="nav-links">
+        <a href="index.html" class="nav-link">🏠 首頁大廳</a>
+        <a href="image-compressor.html" class="nav-link">🖼️ 圖片壓縮</a>
+        <a href="random-picker.html" class="nav-link">🎯 隨機抽籤</a>
+        <a href="focus-timer.html" class="nav-link">⏱️ 專注計時</a>
+        <div class="dropdown">
+          <a href="#" class="nav-link dropdown-toggle active">✨ 更多工具</a>
+          <div class="dropdown-content">
+            <a href="word-counter.html">✍️ 字數統計器</a>
+            <a href="password-generator.html">🔒 密碼產生器</a>
+            <a href="json-formatter.html" class="active">💻 JSON 格式化</a>
+            <a href="css-generator.html">🎨 CSS 陰影與玻璃</a>
+            <a href="qr-code.html">📱 QR Code 產生器</a>
+            <a href="unit-converter.html">⚖️ 單位換算器</a>
+            <a href="color-converter.html">🌈 色彩代碼轉換</a>
+            <a href="base64-converter.html">🔑 Base64 編解碼</a>
+            <a href="date-calculator.html">📅 日期計算器</a>
+            <a href="speech-assistant.html">🗣️ 語音助理</a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <div class="ad-banner">
+      <span>廣告版位預留 (Responsive Banner Ad)</span>
+    </div>
+
+    <div class="main-grid">
+      <div class="workspace">
+        <div class="glass-card">
+          <h2 style="margin-bottom: 1.5rem;">💻 JSON 格式化與美化工具</h2>
+          
+          <div id="error-box" class="glass-card" style="background:rgba(239,68,68,0.1); border-color:var(--error); padding:0.75rem 1.25rem; display:none; margin-bottom:1rem; color:var(--error); font-size:0.9rem;">
+            ❌ JSON 格式錯誤
+          </div>
+
+          <div class="picker-layout" style="grid-template-columns: 1fr 1fr;">
+            <div>
+              <div style="font-weight:600; margin-bottom:0.5rem; font-size:0.9rem; color:var(--text-secondary);">原始 JSON 輸入：</div>
+              <textarea id="json-input" class="textarea-custom" placeholder="請在此貼上您的 JSON 數據..." style="min-height: 380px; font-family:monospace; font-size:0.85rem;"></textarea>
+            </div>
+            <div>
+              <div style="font-weight:600; margin-bottom:0.5rem; font-size:0.9rem; color:var(--text-secondary);">格式化輸出：</div>
+              <textarea id="json-output" class="textarea-custom" readonly placeholder="格式化後的結果..." style="min-height: 380px; font-family:monospace; font-size:0.85rem; background:rgba(255,255,255,0.01);"></textarea>
+            </div>
+          </div>
+
+          <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap:0.75rem; margin-top:1.5rem;">
+            <button class="btn btn-secondary" id="btn-format-2">✨ 2格縮排</button>
+            <button class="btn btn-secondary" id="btn-format-4">✨ 4格縮排</button>
+            <button class="btn btn-secondary" id="btn-minify">🗜️ 壓縮 JSON</button>
+            <button class="btn btn-secondary" id="btn-clear">🧹 清空</button>
+            <button class="btn btn-primary" id="btn-copy">📋 複製結果</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="ad-sidebar">
+        <div class="ad-skyscraper">
+          <span>廣告版位預留 (Skyscraper Ad)</span>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>&copy; 2026 QuickToolsLive. All Rights Reserved. | <a href="privacy.html" style="color:var(--text-muted); text-decoration:none;">隱私權政策</a></p>
+    </footer>
+  </div>
+  <script src="json-formatter.js"></script>
+</body>
+</html>

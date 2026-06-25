@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>網頁語音助手與聽寫 - SpeechWeb | QuickToolsLive</title>
+  <meta name="description" content="免費線上語音轉文字與文字朗讀助理。利用 HTML5 Web Speech API，不耗任何後端流量，快速聽寫記錄及語音播報，高效率且安全。">
+  <link rel="canonical" href="https://www.quicktoolslive.com/speech-assistant.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-container">
+    <header>
+      <div class="logo-section">
+        <h1><a href="index.html" style="text-decoration:none; color:inherit; background:var(--accent-gradient); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">QuickToolsLive</a></h1>
+      </div>
+      <nav class="nav-links">
+        <a href="index.html" class="nav-link">🏠 首頁大廳</a>
+        <a href="image-compressor.html" class="nav-link">🖼️ 圖片壓縮</a>
+        <a href="random-picker.html" class="nav-link">🎯 隨機抽籤</a>
+        <a href="focus-timer.html" class="nav-link">⏱️ 專注計時</a>
+        <div class="dropdown">
+          <a href="#" class="nav-link dropdown-toggle active">✨ 更多工具</a>
+          <div class="dropdown-content">
+            <a href="word-counter.html">✍️ 字數統計器</a>
+            <a href="password-generator.html">🔒 密碼產生器</a>
+            <a href="json-formatter.html">💻 JSON 格式化</a>
+            <a href="css-generator.html">🎨 CSS 陰影與玻璃</a>
+            <a href="qr-code.html">📱 QR Code 產生器</a>
+            <a href="unit-converter.html">⚖️ 單位換算器</a>
+            <a href="color-converter.html">🌈 色彩代碼轉換</a>
+            <a href="base64-converter.html">🔑 Base64 編解碼</a>
+            <a href="date-calculator.html">📅 日期計算器</a>
+            <a href="speech-assistant.html" class="active">🗣️ 語音助理</a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <div class="ad-banner">
+      <span>廣告版位預留 (Responsive Banner Ad)</span>
+    </div>
+
+    <div class="main-grid">
+      <div class="workspace">
+        <div class="glass-card">
+          <h2 style="margin-bottom: 1.5rem;">🗣️ 網頁語音轉文字與助理</h2>
+          
+          <div class="tabs-header">
+            <button class="tab-btn active" id="tab-stt-btn">🎤 語音轉文字 (聽寫)</button>
+            <button class="tab-btn" id="tab-tts-btn">🔊 文字轉語音 (朗讀)</button>
+          </div>
+
+          <!-- Tab 1: Speech to Text -->
+          <div id="tab-stt-content" class="tab-content active">
+            <div class="control-group" style="margin-bottom:1rem;">
+              <div class="control-label"><span>選擇辨識語言:</span></div>
+              <div class="select-wrapper">
+                <select id="stt-lang">
+                  <option value="zh-TW">繁體中文 (zh-TW)</option>
+                  <option value="en-US">英文 (en-US)</option>
+                  <option value="ja-JP">日文 (ja-JP)</option>
+                </select>
+              </div>
+            </div>
+
+            <textarea id="stt-output" class="textarea-custom" placeholder="點擊下方開始按鈕後，請對著麥克風說話，語音辨識結果會在此即時呈現..." style="min-height: 200px; margin-bottom:1.5rem;"></textarea>
+            
+            <div class="speech-wave" id="stt-wave" style="margin-bottom:1rem;">
+              <div class="speech-bar-elem"></div>
+              <div class="speech-bar-elem"></div>
+              <div class="speech-bar-elem"></div>
+              <div class="speech-bar-elem"></div>
+              <div class="speech-bar-elem"></div>
+            </div>
+
+            <div style="display:flex; gap:1rem;">
+              <button class="btn btn-primary" id="btn-stt-record" style="flex:2;">🎤 開始錄音辨識</button>
+              <button class="btn btn-secondary" id="btn-stt-copy" style="flex:1;">📋 複製結果</button>
+              <button class="btn btn-secondary" id="btn-stt-clear" style="flex:1;">🧹 清除</button>
+            </div>
+          </div>
+
+          <!-- Tab 2: Text to Speech -->
+          <div id="tab-tts-content" class="tab-content">
+            <textarea id="tts-input" class="textarea-custom" placeholder="請在此輸入要用語音朗讀的文字內容..." style="min-height: 180px; margin-bottom:1rem;">歡迎使用 QuickToolsLive 語音合成助理！這是一個完全在您的瀏覽器端本地合成的語音功能。</textarea>
+            
+            <div class="picker-layout" style="grid-template-columns: 1fr 1fr; gap:1.5rem; margin-bottom:1.5rem;">
+              <div class="control-group">
+                <div class="control-label"><span>語速 (Rate):</span> <span class="value" id="tts-rate-val">1.0</span></div>
+                <input type="range" id="tts-rate" min="0.5" max="2" step="0.1" value="1">
+              </div>
+              <div class="control-group">
+                <div class="control-label"><span>音高 (Pitch):</span> <span class="value" id="tts-pitch-val">1.0</span></div>
+                <input type="range" id="tts-pitch" min="0.5" max="2" step="0.1" value="1">
+              </div>
+            </div>
+
+            <div style="display:flex; gap:1rem;">
+              <button class="btn btn-primary" id="btn-tts-speak" style="flex:2;">🔊 開始播放</button>
+              <button class="btn btn-secondary" id="btn-tts-stop" style="flex:1;">⏹️ 停止播放</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ad-sidebar">
+        <div class="ad-skyscraper">
+          <span>廣告版位預留 (Skyscraper Ad)</span>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>&copy; 2026 QuickToolsLive. All Rights Reserved. | <a href="privacy.html" style="color:var(--text-muted); text-decoration:none;">隱私權政策</a></p>
+    </footer>
+  </div>
+  <script src="speech-assistant.js"></script>
+</body>
+</html>
